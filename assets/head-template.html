@@ -1,0 +1,76 @@
+<!--
+  STANDARD <head> TEMPLATE — Canvas and Allied
+  Use this block on every translated page (Phase 4).
+  Replace [PLACEHOLDERS] per page. Do not change the shared links.
+-->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="[PAGE DESCRIPTION]" />
+  <title>[PAGE TITLE] | Canvas and Allied</title>
+
+  <!-- Canonical + Open Graph -->
+  <link rel="canonical" href="https://www.canvasandallied.co.za/[PAGE-PATH]" />
+  <meta property="og:type"        content="website" />
+  <meta property="og:title"       content="[PAGE TITLE] | Canvas and Allied" />
+  <meta property="og:description" content="[PAGE DESCRIPTION]" />
+  <meta property="og:url"         content="https://www.canvasandallied.co.za/[PAGE-PATH]" />
+  <meta property="og:image"       content="https://www.canvasandallied.co.za/assets/images/og-default.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="[PAGE TITLE] | Canvas and Allied" />
+  <meta name="twitter:description" content="[PAGE DESCRIPTION]" />
+
+  <!-- Favicons -->
+  <link rel="icon" href="/assets/images/favicon-light.png" media="(prefers-color-scheme: light)" />
+  <link rel="icon" href="/assets/images/favicon-dark.png"  media="(prefers-color-scheme: dark)" />
+
+  <!-- Fonts
+       Replaces inline @font-face rules from Framer SSR CSS.
+       Families confirmed across all pages:
+         Manrope        — section headings (wt 400, 500)
+         Instrument Sans — nav, buttons    (wt 400, 600)
+         Inter          — body, labels     (wt 300, 400, 600, 700)
+       DM Sans was in @font-face but not used in any element styles — omitted.
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;700&family=Instrument+Sans:wght@400&family=Manrope:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <link rel="stylesheet" href="/assets/css/animations.css" />
+
+  <!-- Google Analytics — KEEP (G-QF3GV9E5EQ) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QF3GV9E5EQ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-QF3GV9E5EQ');
+  </script>
+</head>
+
+<!--
+  BODY CLOSE — place before </body> on every page:
+
+  <script src="/assets/js/main.js" defer></script>
+  <script src="/assets/js/animations.js" defer></script>
+
+
+  ELEMENTS TO STRIP from every Framer page during Phase 4:
+  1. <script src="https://events.framer.com/script?v=2" ...>
+  2. <script src="https://framerusercontent.com/sites/.../script_main.ABJTRHL3.mjs">
+  3. All <link rel="modulepreload" href="https://framerusercontent.com/.../chunk-*.mjs">
+  4. <style data-framer-breakpoint-css> ... </style>
+  5. <style data-framer-css-ssr-minified ...> ... </style>
+  6. <script type="framer/appear" id="__framer__appearAnimationsContent"> ... </script>
+  7. <script type="framer/appear" id="__framer__breakpoints"> ... </script>
+  8. <meta name="framer-search-index" ...>
+  9. <meta name="generator" content="Framer ...">
+  10. Inline hydration <script> inside <div id="main"> (the bootstrapper block)
+  11. data-framer-hydrate-v2 attribute on <div id="main">
+  12. data-framer-ssr-released-at, data-framer-page-optimized-at,
+      data-framer-generated-page attributes
+-->

@@ -1,0 +1,11 @@
+.DS_Store
+Thumbs.db
+node_modules/
+.env
+*.log
+hts-cache/
+hts-log.txt
+backblue.gif
+fade.gif
+creative-cube-105281.framer.app/
+framerusercontent.com/
