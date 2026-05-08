@@ -1219,10 +1219,8 @@ details[open] .services-accordion__toggle { transform: rotate(45deg); }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  /* zoom transition handled by GSAP in animations.js */
 }
-
-.service-card:hover .service-card__bg { transform: scale(1.04); }
 
 .service-card__overlay {
   position: absolute;
