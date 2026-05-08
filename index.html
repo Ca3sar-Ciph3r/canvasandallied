@@ -34,8 +34,46 @@
     gtag('config', 'G-QF3GV9E5EQ');
   </script>
   <script defer src="/_vercel/insights/script.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["LocalBusiness", "ProfessionalService"],
+    "@id": "https://www.canvasandallied.co.za/#business",
+    "name": "Canvas and Allied",
+    "alternateName": "Canvas & Allied Products",
+    "description": "Eastern Cape's premier custom canvas manufacturer since 2002. Custom-made canvas, tarpaulin, boat covers, truck covers, industrial and household canvas solutions.",
+    "url": "https://www.canvasandallied.co.za",
+    "logo": "https://www.canvasandallied.co.za/assets/images/3988gsb9OylQKNN0guES5qYGtJk.png",
+    "image": "https://www.canvasandallied.co.za/assets/images/HMHzs7P1IvjibfhQBaAT2JZ8.jpg",
+    "telephone": "+27414533231",
+    "email": "sales@canvasandallied.co.za",
+    "foundingDate": "2002",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "29 Strang Street",
+      "addressLocality": "Sidwell",
+      "addressRegion": "Eastern Cape",
+      "postalCode": "6001",
+      "addressCountry": "ZA"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": -33.9634, "longitude": 25.6148 },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "17:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:00", "closes": "13:00" }
+    ],
+    "priceRange": "$$",
+    "areaServed": { "@type": "AdministrativeArea", "name": "Eastern Cape, South Africa" },
+    "sameAs": [
+      "https://www.facebook.com/p/Canvas-And-Allied-Products-100054271100590/",
+      "https://www.instagram.com/canvasandallied/",
+      "https://www.linkedin.com/company/canvas-and-allied/"
+    ],
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5", "reviewCount": "24", "bestRating": "5" }
+  }
+  </script>
 </head>
 <body>
+  <div class="page-overlay" aria-hidden="true"></div>
 
   <!-- ── NAV ──────────────────────────────────────────────────── -->
   <header class="site-nav nav-entrance" data-nav-desktop>
@@ -45,9 +83,10 @@
       </a>
     </div>
     <ul class="site-nav__links" role="list">
+      <li><a href="/about.html">About</a></li>
       <li><a href="/services.html">Our Services</a></li>
       <li><a href="/repair.html">Repairs</a></li>
-      <li><a href="/index.html#testimonials">Testimonials</a></li>
+      <li><a href="/gallery.html">Gallery</a></li>
       <li><a href="/contact.html">Contact Us</a></li>
     </ul>
     <div class="site-nav__cta">
@@ -67,9 +106,12 @@
       </svg>
     </button>
     <ul style="list-style:none; display:flex; flex-direction:column; gap:var(--space-lg); margin-bottom:var(--space-xl)">
+      <li><a href="/about.html" class="text-ui">About</a></li>
       <li><a href="/services.html" class="text-ui">Our Services</a></li>
       <li><a href="/repair.html" class="text-ui">Repairs</a></li>
-      <li><a href="/index.html#testimonials" class="text-ui">Testimonials</a></li>
+      <li><a href="/gallery.html" class="text-ui">Gallery</a></li>
+      <li><a href="/team.html" class="text-ui">Meet the Team</a></li>
+      <li><a href="/faq.html" class="text-ui">FAQ</a></li>
       <li><a href="/contact.html" class="text-ui">Contact Us</a></li>
     </ul>
     <a href="/contact.html" class="btn btn--primary">Get Started</a>
@@ -130,70 +172,118 @@
     <section class="what-we-do" aria-labelledby="services-heading">
       <span class="section-badge reveal-fade">Services</span>
       <h2 class="section-heading reveal-up" id="services-heading">What we do</h2>
-      <p class="what-we-do__sub reveal-up reveal-delay-1">Find out which one of our services fit the needs of your project:</p>
+      <p class="what-we-do__sub reveal-up reveal-delay-1">Scroll through our six service categories:</p>
     </section>
 
-    <!-- ── SERVICES GRID ─────────────────────────────────────────── -->
-    <section class="home-services" aria-labelledby="services-grid-heading">
-      <h2 class="sr-only" id="services-grid-heading">Our service categories</h2>
-      <div class="home-services__grid stagger">
+    <!-- ── SERVICES SHOWCASE ──────────────────────────────────────── -->
+    <section class="showcase-section" data-showcase aria-labelledby="showcase-heading">
+      <h2 class="sr-only" id="showcase-heading">Our service categories</h2>
+      <div class="showcase-progress" aria-hidden="true"><div class="showcase-progress__bar"></div></div>
+      <div class="showcase-pin-wrap">
+        <div class="showcase-track">
 
-        <a href="/page-1/nautical.html" class="service-card hover-lift reveal-up" aria-label="Boating canvas services">
-          <img class="service-card__bg" src="/assets/images/SMDEsnm16stwzhFsv10z3gOmnI.jpg" alt="Marine boat covers" loading="lazy" />
-          <div class="service-card__overlay" aria-hidden="true"></div>
-          <div class="service-card__content">
-            <h3 class="service-card__title">BOATING</h3>
-            <p class="service-card__desc">Custom marine covers built to handle South Africa's harsh conditions.</p>
-          </div>
-        </a>
+          <article class="showcase-card" aria-label="Boating canvas">
+            <img class="showcase-card__bg" src="/assets/images/SMDEsnm16stwzhFsv10z3gOmnI.jpg" alt="Marine boat covers" loading="lazy" />
+            <div class="showcase-card__overlay" aria-hidden="true"></div>
+            <div class="showcase-card__content">
+              <p class="showcase-card__num">01</p>
+              <h3 class="showcase-card__title">BOATING</h3>
+              <p class="showcase-card__desc">Custom marine covers built to handle South Africa's harsh conditions.</p>
+              <a href="/page-1/nautical.html" class="btn btn--outline" style="color:#fff;border-color:rgba(255,255,255,0.5);margin-top:var(--space-md)">View Service</a>
+            </div>
+          </article>
 
-        <a href="/page-1/leisure.html" class="service-card hover-lift reveal-up" aria-label="Leisure canvas services">
-          <img class="service-card__bg" src="/assets/images/8y0jQzni9VVxibAdFMhy8RXpfM.jpg" alt="Caravan and leisure covers" loading="lazy" />
-          <div class="service-card__overlay" aria-hidden="true"></div>
-          <div class="service-card__content">
-            <h3 class="service-card__title">LEISURE</h3>
-            <p class="service-card__desc">Heavy-duty, stormproof covers for caravans, awnings, and camping gear.</p>
-          </div>
-        </a>
+          <article class="showcase-card" aria-label="Leisure canvas">
+            <img class="showcase-card__bg" src="/assets/images/8y0jQzni9VVxibAdFMhy8RXpfM.jpg" alt="Caravan and leisure covers" loading="lazy" />
+            <div class="showcase-card__overlay" aria-hidden="true"></div>
+            <div class="showcase-card__content">
+              <p class="showcase-card__num">02</p>
+              <h3 class="showcase-card__title">LEISURE</h3>
+              <p class="showcase-card__desc">Heavy-duty, stormproof covers for caravans, awnings, and camping gear.</p>
+              <a href="/page-1/leisure.html" class="btn btn--outline" style="color:#fff;border-color:rgba(255,255,255,0.5);margin-top:var(--space-md)">View Service</a>
+            </div>
+          </article>
 
-        <a href="/page-1/household.html" class="service-card hover-lift reveal-up" aria-label="Household canvas services">
-          <img class="service-card__bg" src="/assets/images/C7sqGCNPU24kTrZm9TSW0C3mQM.jpg" alt="Household protective covers" loading="lazy" />
-          <div class="service-card__overlay" aria-hidden="true"></div>
-          <div class="service-card__content">
-            <h3 class="service-card__title">HOUSEHOLD</h3>
-            <p class="service-card__desc">Durable covers for pools, gazebos, furniture, and home essentials.</p>
-          </div>
-        </a>
+          <article class="showcase-card" aria-label="Household canvas">
+            <img class="showcase-card__bg" src="/assets/images/C7sqGCNPU24kTrZm9TSW0C3mQM.jpg" alt="Household protective covers" loading="lazy" />
+            <div class="showcase-card__overlay" aria-hidden="true"></div>
+            <div class="showcase-card__content">
+              <p class="showcase-card__num">03</p>
+              <h3 class="showcase-card__title">HOUSEHOLD</h3>
+              <p class="showcase-card__desc">Durable covers for pools, gazebos, furniture, and home essentials.</p>
+              <a href="/page-1/household.html" class="btn btn--outline" style="color:#fff;border-color:rgba(255,255,255,0.5);margin-top:var(--space-md)">View Service</a>
+            </div>
+          </article>
 
-        <a href="/page-1/transport.html" class="service-card hover-lift reveal-up" aria-label="Transport canvas services">
-          <img class="service-card__bg" src="/assets/images/ErrZaizhTpZy7OVuwKpklDlBS8.jpg" alt="Transport tarpaulins" loading="lazy" />
-          <div class="service-card__overlay" aria-hidden="true"></div>
-          <div class="service-card__content">
-            <h3 class="service-card__title">TRANSPORT</h3>
-            <p class="service-card__desc">Trusted tarps protecting cargo from weather, UV, and road wear.</p>
-          </div>
-        </a>
+          <article class="showcase-card" aria-label="Transport canvas">
+            <img class="showcase-card__bg" src="/assets/images/ErrZaizhTpZy7OVuwKpklDlBS8.jpg" alt="Transport tarpaulins" loading="lazy" />
+            <div class="showcase-card__overlay" aria-hidden="true"></div>
+            <div class="showcase-card__content">
+              <p class="showcase-card__num">04</p>
+              <h3 class="showcase-card__title">TRANSPORT</h3>
+              <p class="showcase-card__desc">Trusted tarps protecting cargo from weather, UV, and road wear.</p>
+              <a href="/page-1/transport.html" class="btn btn--outline" style="color:#fff;border-color:rgba(255,255,255,0.5);margin-top:var(--space-md)">View Service</a>
+            </div>
+          </article>
 
-        <a href="/page-1/sport.html" class="service-card hover-lift reveal-up" aria-label="Sports canvas services">
-          <img class="service-card__bg" src="/assets/images/9H9VcXX6G09q3chUFyhrqYEHE.jpg" alt="Sports equipment covers" loading="lazy" />
-          <div class="service-card__overlay" aria-hidden="true"></div>
-          <div class="service-card__content">
-            <h3 class="service-card__title">SPORTS</h3>
-            <p class="service-card__desc">Cricket nets, pitch covers, soccer nets, and more for schools and clubs.</p>
-          </div>
-        </a>
+          <article class="showcase-card" aria-label="Sports canvas">
+            <img class="showcase-card__bg" src="/assets/images/9H9VcXX6G09q3chUFyhrqYEHE.jpg" alt="Sports equipment covers" loading="lazy" />
+            <div class="showcase-card__overlay" aria-hidden="true"></div>
+            <div class="showcase-card__content">
+              <p class="showcase-card__num">05</p>
+              <h3 class="showcase-card__title">SPORTS</h3>
+              <p class="showcase-card__desc">Cricket nets, pitch covers, soccer nets, and more for schools and clubs.</p>
+              <a href="/page-1/sport.html" class="btn btn--outline" style="color:#fff;border-color:rgba(255,255,255,0.5);margin-top:var(--space-md)">View Service</a>
+            </div>
+          </article>
 
-        <a href="/page-1/industrial.html" class="service-card hover-lift reveal-up" aria-label="Industrial canvas services">
-          <img class="service-card__bg" src="/assets/images/0SNDa2Ts11Ni07C05RzWEOnb4Dc.jpg" alt="Industrial covers" loading="lazy" />
-          <div class="service-card__overlay" aria-hidden="true"></div>
-          <div class="service-card__content">
-            <h3 class="service-card__title">INDUSTRIAL</h3>
-            <p class="service-card__desc">Welding curtains, filter bags, ventilation ducts, and industrial protection.</p>
-          </div>
-        </a>
+          <article class="showcase-card" aria-label="Industrial canvas">
+            <img class="showcase-card__bg" src="/assets/images/0SNDa2Ts11Ni07C05RzWEOnb4Dc.jpg" alt="Industrial covers" loading="lazy" />
+            <div class="showcase-card__overlay" aria-hidden="true"></div>
+            <div class="showcase-card__content">
+              <p class="showcase-card__num">06</p>
+              <h3 class="showcase-card__title">INDUSTRIAL</h3>
+              <p class="showcase-card__desc">Welding curtains, filter bags, ventilation ducts, and industrial protection.</p>
+              <a href="/page-1/industrial.html" class="btn btn--outline" style="color:#fff;border-color:rgba(255,255,255,0.5);margin-top:var(--space-md)">View Service</a>
+            </div>
+          </article>
 
+        </div>
       </div>
     </section>
+
+    <!-- ── TURNAROUND BAR ─────────────────────────────────────────── -->
+    <div class="turnaround-bar" aria-label="Service information">
+      <div class="turnaround-bar__inner">
+        <div class="turnaround-bar__item reveal-up">
+          <div class="turnaround-bar__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <strong class="turnaround-bar__label">5–7 Working Days</strong>
+            <span class="turnaround-bar__desc">Typical turnaround for standard custom orders</span>
+          </div>
+        </div>
+        <div class="turnaround-bar__item reveal-up reveal-delay-1">
+          <div class="turnaround-bar__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <strong class="turnaround-bar__label">Eastern Cape Based</strong>
+            <span class="turnaround-bar__desc">On-site measurement available in Port Elizabeth</span>
+          </div>
+        </div>
+        <div class="turnaround-bar__item reveal-up reveal-delay-2">
+          <div class="turnaround-bar__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          </div>
+          <div>
+            <strong class="turnaround-bar__label">National Delivery</strong>
+            <span class="turnaround-bar__desc">We deliver canvas products across South Africa</span>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- ── FAQ ───────────────────────────────────────────────────── -->
     <section class="faq" aria-labelledby="faq-heading">
@@ -391,29 +481,41 @@
   <footer class="site-footer">
     <div class="site-footer__grid">
       <div>
-        <p class="site-footer__col-label">Pages</p>
+        <p class="site-footer__col-label">Company</p>
         <ul class="site-footer__links">
           <li><a href="/index.html">Home</a></li>
-          <li><a href="/services.html">Services</a></li>
-          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="/about.html">About Us</a></li>
+          <li><a href="/team.html">Meet the Team</a></li>
+          <li><a href="/gallery.html">Gallery</a></li>
+          <li><a href="/faq.html">FAQ</a></li>
         </ul>
       </div>
       <div>
-        <p class="site-footer__col-label">Email</p>
+        <p class="site-footer__col-label">Services</p>
+        <ul class="site-footer__links">
+          <li><a href="/services.html">All Services</a></li>
+          <li><a href="/repair.html">Repairs</a></li>
+          <li><a href="/page-1/nautical.html">Nautical</a></li>
+          <li><a href="/page-1/transport.html">Transport</a></li>
+          <li><a href="/page-1/industrial.html">Industrial</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="site-footer__col-label">Contact</p>
         <ul class="site-footer__links">
           <li><a href="mailto:sales@canvasandallied.co.za">sales@canvasandallied.co.za</a></li>
-        </ul>
-      </div>
-      <div>
-        <p class="site-footer__col-label">Phone</p>
-        <ul class="site-footer__links">
           <li><a href="tel:+27414533231">041 453 3231</a></li>
+          <li><a href="https://wa.me/27414533231?text=Hi%2C+I%27d+like+a+quote" target="_blank" rel="noopener noreferrer">WhatsApp Us</a></li>
         </ul>
       </div>
       <div>
         <p class="site-footer__col-label">Address</p>
         <ul class="site-footer__links">
           <li><a href="https://maps.app.goo.gl/aWM5aPpoHiYySxMU6" target="_blank" rel="noopener noreferrer">29 Strang Street, Sidwell, Port Elizabeth</a></li>
+        </ul>
+        <p class="site-footer__col-label" style="margin-top:1.5rem">Service Area</p>
+        <ul class="site-footer__links">
+          <li>Eastern Cape &amp; National Delivery</li>
         </ul>
       </div>
     </div>
@@ -428,7 +530,7 @@
   </footer>
 
   <div class="float-bar" aria-label="Quick contact">
-    <a href="https://wa.me/27414533231" class="float-bar__whatsapp" target="_blank" rel="noopener noreferrer">
+    <a href="https://wa.me/27414533231?text=Hi%2C+I%27d+like+a+quote" class="float-bar__whatsapp" target="_blank" rel="noopener noreferrer">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       WhatsApp
     </a>

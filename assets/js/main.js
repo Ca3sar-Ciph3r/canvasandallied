@@ -106,16 +106,81 @@
 
 
   /* ── ACCORDION SMOOTH OPEN ────────────────────────────────── */
-  /* <details> elements animate closed with a CSS max-height trick */
   document.querySelectorAll('details').forEach(function (el) {
     el.addEventListener('toggle', function () {
       if (el.open) {
         var body = el.querySelector('.services-accordion__body, .faq__answer');
-        if (body) {
-          body.style.maxHeight = body.scrollHeight + 'px';
-        }
+        if (body) { body.style.maxHeight = body.scrollHeight + 'px'; }
       }
     });
   });
+
+
+  /* ── PAGE TRANSITIONS ─────────────────────────────────────── */
+  /*
+   * .page-overlay starts fully opaque (white) via CSS.
+   * On load: GSAP fades it out (page fades in).
+   * On internal link click: fade to white, then navigate.
+   */
+  var overlay = document.querySelector('.page-overlay');
+  if (overlay) {
+    if (typeof gsap !== 'undefined') {
+      gsap.to(overlay, { opacity: 0, duration: 0.55, delay: 0.1,
+        onComplete: function () { overlay.style.pointerEvents = 'none'; overlay.style.display = 'none'; }
+      });
+    } else {
+      overlay.style.transition = 'opacity 0.55s ease';
+      overlay.style.opacity    = '0';
+      setTimeout(function () { overlay.style.display = 'none'; }, 650);
+    }
+
+    document.addEventListener('click', function (e) {
+      var link = e.target.closest('a[href]');
+      if (!link) return;
+      var href = link.getAttribute('href');
+      if (!href || href.charAt(0) === '#') return;
+      if (/^(https?:|mailto:|tel:|javascript:)/.test(href)) return;
+      if (e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
+      if (link.target === '_blank') return;
+
+      e.preventDefault();
+      overlay.style.display      = '';
+      overlay.style.pointerEvents = 'auto';
+
+      if (typeof gsap !== 'undefined') {
+        gsap.fromTo(overlay, { opacity: 0 }, {
+          opacity: 1, duration: 0.35,
+          onComplete: function () { window.location.href = href; }
+        });
+      } else {
+        overlay.style.transition = 'opacity 0.35s ease';
+        overlay.style.opacity    = '1';
+        setTimeout(function () { window.location.href = href; }, 380);
+      }
+    });
+  }
+
+
+  /* ── GALLERY FILTER ───────────────────────────────────────── */
+  var filterBtns = document.querySelectorAll('.gallery-filter__btn');
+  var galleryItems = document.querySelectorAll('.gallery-item');
+  if (filterBtns.length && galleryItems.length) {
+    filterBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        filterBtns.forEach(function (b) { b.classList.remove('is-active'); });
+        btn.classList.add('is-active');
+        var cat = btn.dataset.filter;
+        galleryItems.forEach(function (item) {
+          var show = cat === 'all' || item.dataset.category === cat;
+          if (typeof gsap !== 'undefined') {
+            gsap.to(item, { opacity: show ? 1 : 0.15, scale: show ? 1 : 0.97,
+              duration: 0.35, ease: 'power2.out' });
+          } else {
+            item.style.opacity = show ? '1' : '0.15';
+          }
+        });
+      });
+    });
+  }
 
 })();

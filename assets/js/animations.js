@@ -207,7 +207,6 @@
   });
 
   // ── SERVICE CARD — IMAGE ZOOM ON HOVER ───────────────────────────
-  // GSAP handles this; CSS transition+hover rule removed from main.css
   gsap.utils.toArray('.service-card').forEach(function (card) {
     var img = card.querySelector('.service-card__bg');
     if (!img) return;
@@ -218,5 +217,69 @@
       gsap.to(img, { scale: 1.0, duration: 0.5, ease: 'power2.inOut' });
     });
   });
+
+  // ── SHOWCASE CARD — IMAGE ZOOM ON HOVER ──────────────────────────
+  gsap.utils.toArray('.showcase-card').forEach(function (card) {
+    var img = card.querySelector('.showcase-card__bg');
+    if (!img) return;
+    card.addEventListener('mouseenter', function () {
+      gsap.to(img, { scale: 1.07, duration: 0.6, ease: 'power2.out' });
+    });
+    card.addEventListener('mouseleave', function () {
+      gsap.to(img, { scale: 1.0, duration: 0.55, ease: 'power2.inOut' });
+    });
+  });
+
+  // ── HORIZONTAL SHOWCASE SCROLL ────────────────────────────────────
+  // Desktop only: pin the section and drive horizontal scroll via scrub
+  var showcaseSection = document.querySelector('[data-showcase]');
+  var showcaseTrack   = document.querySelector('.showcase-track');
+  if (showcaseSection && showcaseTrack && window.innerWidth >= 1200) {
+    var cards     = showcaseTrack.querySelectorAll('.showcase-card');
+    var scrollDist = showcaseTrack.scrollWidth - window.innerWidth;
+
+    if (scrollDist > 0 && cards.length > 1) {
+      gsap.to(showcaseTrack, {
+        x: -scrollDist,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: showcaseSection,
+          pin: true,
+          scrub: 1.2,
+          start: 'top top',
+          end: '+=' + scrollDist,
+          snap: {
+            snapTo: 1 / (cards.length - 1),
+            duration: { min: 0.2, max: 0.4 },
+            ease: 'power1.inOut'
+          },
+          onUpdate: function (self) {
+            var bar = document.querySelector('.showcase-progress__bar');
+            if (bar) gsap.set(bar, { scaleX: self.progress });
+          }
+        }
+      });
+
+      // Animate content in each card as it becomes active
+      cards.forEach(function (card, i) {
+        var content = card.querySelector('.showcase-card__content');
+        if (!content) return;
+        gsap.fromTo(content,
+          { opacity: 0, y: 32 },
+          {
+            opacity: 1, y: 0, duration: 0.8, ease: 'expo.out',
+            scrollTrigger: {
+              trigger: showcaseSection,
+              start: 'top+=' + (i * (scrollDist / (cards.length - 1)) * 0.85) + ' top',
+              toggleActions: 'play none none reverse',
+              containerAnimation: ScrollTrigger.getAll().find(function(t) {
+                return t.vars && t.vars.trigger === showcaseSection && t.vars.pin;
+              })
+            }
+          }
+        );
+      });
+    }
+  }
 
 })();
