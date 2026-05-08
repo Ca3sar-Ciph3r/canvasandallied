@@ -2414,3 +2414,128 @@ details[open] .services-accordion__toggle { transform: rotate(45deg); }
     color: var(--color-white);
   }
 }
+
+
+/* ── LOGO SWAP — glass nav (white logo) ↔ scrolled nav (dark logo) ── */
+
+.logo-dark  { display: none; }
+.logo-light { display: block; }
+
+.site-nav.is-scrolled .logo-light { display: none; }
+.site-nav.is-scrolled .logo-dark  { display: block; }
+
+
+/* ── MOBILE FIXES ─────────────────────────────────────────────── */
+
+/* 1. Body bottom padding — prevents float bar hiding page content */
+@media (max-width: 1199px) {
+  body {
+    padding-bottom: max(96px, calc(76px + env(safe-area-inset-bottom)));
+  }
+}
+
+/* 2. Float bar — iOS safe area (home indicator) */
+@media (max-width: 1199px) {
+  .float-bar {
+    bottom: max(20px, env(safe-area-inset-bottom, 20px));
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+}
+
+/* 3. Mobile nav — prevent overflow on short screens */
+.site-nav__mobile {
+  max-height: 100svh;
+  overflow-y: auto;
+}
+
+/* 4. Showcase cards — keep "View Service" button visible on mobile */
+@media (max-width: 1199px) {
+  .showcase-card__content .btn {
+    display: inline-flex;
+    font-size: 13px;
+    padding: 8px 16px;
+    margin-top: var(--space-sm);
+    border-color: rgba(255,255,255,0.45);
+    color: #fff;
+  }
+  .showcase-card__desc { display: none; } /* title + btn is enough at small size */
+}
+
+/* 5. Gallery filter — horizontal scroll instead of wrapping rows */
+@media (max-width: 809px) {
+  .gallery-filter {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+    margin-bottom: var(--space-xl);
+  }
+  .gallery-filter::-webkit-scrollbar { display: none; }
+  .gallery-filter__btn { flex-shrink: 0; }
+}
+
+/* 6. FAQ question — smaller font on mobile */
+@media (max-width: 809px) {
+  .faq__list summary {
+    font-size: clamp(16px, 4.5vw, 19px);
+  }
+}
+
+/* 7. Repair hero — less dead space on mobile */
+@media (max-width: 809px) {
+  .repair-hero { min-height: 55vh; }
+}
+
+/* 8. Team card photo — square on mobile to reduce scroll depth */
+@media (max-width: 600px) {
+  .team-card__photo { aspect-ratio: 1 / 1; }
+}
+
+/* 9. Testimonials — partial next-card peek as swipe hint */
+@media (max-width: 809px) {
+  .testimonials__track {
+    padding-right: 48px;
+  }
+  .review-card {
+    width: min(300px, 82vw);
+  }
+}
+
+/* ── LOGO SWAP — white logo on glass nav, dark logo on scrolled white nav ── */
+.logo-dark  { display: none; }
+.logo-light { display: block; }
+.site-nav.is-scrolled .logo-light { display: none; }
+.site-nav.is-scrolled .logo-dark  { display: block; }
+
+/* ── MOBILE FLOAT BAR — body clearance ── */
+@media (max-width: 1199px) {
+  body {
+    padding-bottom: max(96px, calc(76px + env(safe-area-inset-bottom)));
+  }
+}
+
+/* ── MOBILE FLOAT BAR — iOS safe area inset ── */
+@media (max-width: 1199px) {
+  .float-bar {
+    bottom: max(20px, env(safe-area-inset-bottom, 20px));
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+}
+
+/* ── MOBILE NAV — prevent overflow on short screens ── */
+.site-nav__mobile { max-height: 100svh; overflow-y: auto; }
+
+/* ── SHOWCASE CARD — show button on mobile, hide description ── */
+@media (max-width: 1199px) {
+  .showcase-card__content .btn {
+    display: inline-flex;
+    font-size: 13px;
+    padding: 8px 16px;
+    margin-top: var(--space-sm);
+    border-color: rgba(255,255,255,0.45);
+    color: #fff;
+  }
+  .showcase-card__desc { display: none; }
+}
